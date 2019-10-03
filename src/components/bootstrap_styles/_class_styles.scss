@@ -1,0 +1,66 @@
+// create necessary class specific css for nav and tables
+@each $class, $color-value in $class-colors {
+
+    .#{$class}-color {
+        color: $color-value!important;
+    }
+
+    .#{$class}-menu-border {
+        // border-top: $border-width-thick solid transparent;
+        border-bottom: $border-width-thick solid transparent;
+        transition: border-bottom .05s ease-in;
+        &:hover {
+            border-bottom: $border-width-thick solid $color-value;
+            transition: border-bottom .0s ease-in;
+        }
+        &:active {
+            border-bottom: $border-width-thick solid $color-value;
+        }
+    }
+
+    .#{$class}-menu-border.active {
+        border-bottom: $border-width-thick solid $color-value;
+    }
+
+    .#{$class}-border-top {
+        border-top: $border-width-thick solid $color-value;
+    }
+
+    .#{$class}-border-bottom {
+        border-bottom: $border-width-thick solid $color-value;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .#{$class}-menu-border {
+            border-bottom: 0px solid transparent;
+        }
+        .#{$class}-border-bottom, .#{$class}-menu-border.active {
+            border-bottom: 0px solid transparent;
+            border-left: $border-width-thick solid $color-value;
+            padding-left: 5px;
+        }
+    }
+
+    // Hide the bottom border if the sub menu is active
+    .show .#{$class}-menu-border:hover, .show .#{$class}-menu-border.active {
+        border-bottom: $border-width-thick solid transparent;
+    }
+
+    .#{$class}-button {
+        background: $darkest-color;
+        color: $color-value;
+        border-right: 5px solid $darkest-color;
+        border-left: 5px solid $darkest-color;
+        transition: border .05s ease-in;
+        &:hover, &:active {
+            background: $darkest-color;
+            color: $color-value;
+            border-left: 5px solid $color-value;
+            transition: border .0s ease-in;
+        }
+    }
+
+    .border-#{$class} {
+        border-color: $color-value !important;
+    }
+}

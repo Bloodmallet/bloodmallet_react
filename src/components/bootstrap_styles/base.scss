@@ -1,0 +1,114 @@
+$darkest-color: #232227 !default;
+$dark-color: #343a40 !default;
+$light-color: #999999 !default;
+$lightest-color: #f8f9fa !default;
+
+// Wow class colors
+$class-color-death-knight: #c41f3b !default;
+$class-color-demon-hunter: #a330c9 !default;
+$class-color-druid: #ff7d0a !default;
+$class-color-hunter: #abd473 !default;
+$class-color-mage: #69ccf0 !default;
+$class-color-monk: #00ff96 !default;
+$class-color-paladin: #f58cba !default;
+$class-color-priest: #ffffff !default;
+$class-color-rogue: #fff569 !default;
+$class-color-shaman: #0070de !default;
+$class-color-warlock: #9482c9 !default;
+$class-color-warrior: #c79c6e !default;
+
+$class-colors: () !default;
+$class-colors: map-merge((
+  "death_knight":   $class-color-death-knight,
+  "demon_hunter":   $class-color-demon-hunter,
+  "druid":          $class-color-druid,
+  "hunter":         $class-color-hunter,
+  "mage":           $class-color-mage,
+  "monk":           $class-color-monk,
+  "paladin":        $class-color-paladin,
+  "priest":         $class-color-priest,
+  "rogue":          $class-color-rogue,
+  "shaman":         $class-color-shaman,
+  "warlock":        $class-color-warlock,
+  "warrior":        $class-color-warrior
+), $class-colors);
+
+$body-bg: $dark-color;
+$body-color: $lightest-color;
+
+$primary:       $class-color-shaman !default;
+$secondary:     $light-color !default;
+$success:       $class-color-monk !default;
+$info:          $class-color-mage !default;
+$warning:       $class-color-rogue !default;
+$danger:        $class-color-druid !default;
+$light:         $lightest-color !default;
+$dark:          $dark-color !default;
+
+
+// Borders
+$border-width:                1px;
+$border-width-thick:          $border-width * 3 !default;
+$border-radius:               0rem !default;
+$border-radius-lg:            0rem !default;
+$border-radius-sm:            0rem !default;
+$border-color:                $light-color !default;
+
+// Links
+//
+// Style anchor elements.
+$link-color:                lighten($primary, 15%) !default;
+$link-decoration:           none !default;
+$link-hover-color:          $primary !default;
+$link-hover-decoration:     underline !default;
+
+// General text
+$font-size-base:        1.1rem !default;
+$input-color:           $lightest-color !default;
+$input-bg:              $darkest-color !default;
+$input-border-color:    $light-color !default;
+
+// card style override
+// $card-bg: $body-bg;
+// $card-border-color: $light-color;
+
+// modal style override
+// $close-color: $lightest-color;
+// $modal-content-bg: $body-bg;
+// $modal-content-border-color: $light-color;
+// $modal-header-border-color: $light-color;
+
+$alert-border-width: 5px !default;
+
+$dropdown-bg: $darkest-color !default;
+$dropdown-padding-y: 0.0rem !default;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+@import '_class_styles.scss';
+@import '_navbar.scss';
+
+
+//
+// Styles of the secondary menu
+#secondaryNavbar {
+  top: 60px;
+  // height: 62px;
+  z-index: 500;
+}
+#secondaryMenu {
+  z-index: 45;
+  top: 0px;
+  // visibility: visible;
+  -webkit-animation: fadein_class_nav 0.6s;
+  animation: fadein_class_nav 0.6s;
+}
+// there was an animation here...it somehow broke. maybe due to "sticky-top" class
+@-webkit-keyframes fadein_class_nav {
+  from {top: -60px; opacity: 1;}
+  to {top: 0px; opacity: 1;}
+}
+@keyframes fadein_class_nav {
+  from {top: -60px; opacity: 1;}
+  to {top: 0px; opacity: 1;}
+}
